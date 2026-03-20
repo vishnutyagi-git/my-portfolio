@@ -1,0 +1,176 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
+
+export default function Projects() {
+    const projectsData = [
+        {
+            id: 1,
+            title: "Ethereal",
+            category: "WebGL Experience",
+            year: "2025",
+            description: "An immersive 3D web experience built to push the boundaries of browser rendering. Features custom shaders and dynamic lighting.",
+            tech: ["Three.js", "React Three Fiber", "GLSL", "Next.js"],
+            links: { github: "#", live: "#" },
+            theme: {
+                border: "group-hover:border-cyan-500/40",
+                shadow: "group-hover:shadow-[0_0_40px_-10px_rgba(6,182,212,0.2)]",
+                glow: "from-cyan-500/20 to-blue-500/20",
+                title: "group-hover:text-cyan-300",
+                pill: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20"
+            }
+        },
+        {
+            id: 2,
+            title: "Lumina",
+            category: "Fintech Platform",
+            year: "2025",
+            description: "A high-performance financial dashboard handling real-time data streams. Engineered for sub-second latency and maximum security.",
+            tech: ["Next.js", "TypeScript", "Tailwind CSS", "WebSockets"],
+            links: { github: "#", live: "#" },
+            theme: {
+                border: "group-hover:border-emerald-500/40",
+                shadow: "group-hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]",
+                glow: "from-emerald-500/20 to-teal-500/20",
+                title: "group-hover:text-emerald-300",
+                pill: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
+            }
+        },
+        {
+            id: 3,
+            title: "Aura",
+            category: "Immersive E-Commerce",
+            year: "2024",
+            description: "Redefining online shopping with an interactive, headless e-commerce architecture. Seamlessly integrated with Stripe and Sanity CMS.",
+            tech: ["React", "Node.js", "Stripe", "Sanity"],
+            links: { github: "#", live: "#" },
+            theme: {
+                border: "group-hover:border-purple-500/40",
+                shadow: "group-hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.2)]",
+                glow: "from-purple-500/20 to-fuchsia-500/20",
+                title: "group-hover:text-purple-300",
+                pill: "bg-purple-500/10 text-purple-300 border-purple-500/20"
+            }
+        },
+        {
+            id: 4,
+            title: "Nexus",
+            category: "Brand Identity",
+            year: "2024",
+            description: "A digital identity system built for a modern tech startup. Focused on typography, motion design, and a pixel-perfect responsive layout.",
+            tech: ["Framer Motion", "Tailwind CSS", "Figma"],
+            links: { github: "#", live: "#" },
+            theme: {
+                border: "group-hover:border-orange-500/40",
+                shadow: "group-hover:shadow-[0_0_40px_-10px_rgba(249,115,22,0.2)]",
+                glow: "from-orange-500/20 to-rose-500/20",
+                title: "group-hover:text-orange-300",
+                pill: "bg-orange-500/10 text-orange-300 border-orange-500/20"
+            }
+        }
+    ];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 },
+        },
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 40, scale: 0.98 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { type: 'spring', stiffness: 100, damping: 20 }
+        },
+    };
+
+    return (
+        <section id="projects" className="relative mx-auto max-w-6xl px-6 py-32">
+            {/* Background Atmosphere */}
+            <div className="absolute left-0 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-emerald-500/5 blur-[140px] pointer-events-none" />
+
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                className="flex flex-col items-start"
+            >
+                {/* Header Section with Emerald Gradient */}
+                <div className="mb-20">
+                    <motion.h2
+                        variants={cardVariants}
+                        className="text-5xl md:text-6xl font-bold tracking-tight text-white"
+                    >
+                        The <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 text-glow-emerald">Build Log</span>
+                    </motion.h2>
+                    <motion.p
+                        variants={cardVariants}
+                        className="mt-6 text-neutral-500 text-lg md:text-xl max-w-2xl font-light"
+                    >
+                        A curation of recent digital experiences and engineering endeavors.
+                    </motion.p>
+                </div>
+
+                {/* Projects Grid */}
+                <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+                    {projectsData.map((project) => (
+                        <motion.div
+                            key={project.id}
+                            variants={cardVariants}
+                            className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent p-8 md:p-10 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.06] ${project.theme.border} ${project.theme.shadow}`}
+                        >
+                            {/* Animated Ambient Glow */}
+                            <div className={`absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br ${project.theme.glow} blur-[80px] transition-opacity duration-700 opacity-10 group-hover:opacity-100`} />
+
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="flex items-start justify-between mb-8">
+                                    <div>
+                                        <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 font-bold mb-2 block">{project.category}</span>
+                                        <h3 className={`text-3xl font-bold text-white transition-colors duration-300 ${project.theme.title}`}>
+                                            {project.title}
+                                        </h3>
+                                    </div>
+                                    <div className="rounded-full border border-white/10 bg-white/5 px-4 py-1 text-[10px] font-bold tracking-widest text-neutral-400 uppercase">
+                                        {project.year}
+                                    </div>
+                                </div>
+
+                                <p className="mb-10 text-neutral-500 leading-relaxed text-base font-light">
+                                    {project.description}
+                                </p>
+
+                                <div className="mt-auto flex flex-col gap-6 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech.map((tech, i) => (
+                                            <span
+                                                key={i}
+                                                className={`rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-wider transition-colors ${project.theme.pill}`}
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex gap-5 shrink-0">
+                                        <a href={project.links.github} className="text-neutral-500 hover:text-white transition-all transform hover:scale-125">
+                                            <FiGithub size={22} />
+                                        </a>
+                                        <a href={project.links.live} className="text-neutral-500 hover:text-white transition-all transform hover:scale-125">
+                                            <FiExternalLink size={22} />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+        </section>
+    );
+}

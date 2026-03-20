@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#121212] text-white antialiased selection:bg-white selection:text-black;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        /* Prevent overscroll bounce on Mac which ruins scrollytelling */
+        overscroll-behavior: none;
+    }
+}
