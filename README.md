@@ -22,7 +22,6 @@
 
 ## 🧠 About Me
 
-```diff
 + Full Stack Developer (Next.js / React)
 + Exploring AI/ML & Cloud Technologies
 + Passionate about clean UI & performance
@@ -82,4 +81,4 @@ my-portfolio/
 🍴 Fork it
 💬 Share feedback
 
-<p align="center"> 🔥 <b>Code. Build. Dominate.</b> 🔥 </p>'''
+<p align="center"> 🔥 <b>Code. Build. Dominate.</b> 🔥 </p>
